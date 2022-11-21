@@ -3,7 +3,7 @@ CC=gcc
 FLAGS= -Wall -Werror -Wextra
 SRC = main.c
 
-OBJ = $(SRC:.s=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
