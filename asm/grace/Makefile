@@ -3,7 +3,7 @@ CC=gcc
 FLAGS= -Wall -Werror -Wextra
 SRC = Grace.s
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.s=.o)
 
 all: $(NAME)
 
