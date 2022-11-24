@@ -1,17 +1,17 @@
 NAME = Grace
 CC=gcc
 FLAGS= -Wall -Werror -Wextra
-SRC = Grace.c
+SRC = Grace.s
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) -o $(NAME) $(OBJ)
+	ld --dynamic-linker=/lib64/ld-linux-x86-64.so.2 -o $(NAME) -lc $(OBJ)
 
-%.o: %.c
-	$(CC) $(FLAGS) -I. -c $<
+%.o: %.s
+	nasm -felf64 $<
 
 clean:
 	/bin/rm -rf $(OBJ)

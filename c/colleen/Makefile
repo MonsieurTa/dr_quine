@@ -11,7 +11,7 @@ $(NAME): $(OBJ)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
 %.o: %.s
-	$(CC) $(FLAGS) -I. -o $@ $<
+	$(CC) $(FLAGS) -I. -c $<
 
 clean:
 	/bin/rm -rf $(OBJ)
