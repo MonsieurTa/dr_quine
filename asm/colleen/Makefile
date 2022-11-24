@@ -1,17 +1,17 @@
 NAME = Colleen
 CC=gcc
 FLAGS= -Wall -Werror -Wextra
-SRC = Colleen.c
+SRC = Colleen.s
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.s=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) -o $(NAME) $(OBJ)
+	ld --dynamic-linker=/lib64/ld-linux-x86-64.so.2 -o $(NAME) -lc $(OBJ)
 
 %.o: %.s
-	$(CC) $(FLAGS) -I. -o $@ $<
+	nasm -felf64 $<
 
 clean:
 	/bin/rm -rf $(OBJ)

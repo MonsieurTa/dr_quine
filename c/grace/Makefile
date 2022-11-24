@@ -1,9 +1,9 @@
-NAME = Colleen
+NAME = Grace
 CC=gcc
 FLAGS= -Wall -Werror -Wextra
-SRC =
+SRC = Grace.c
 
-OBJ = $(SRC:.s=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
@@ -11,7 +11,7 @@ $(NAME): $(OBJ)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
 %.o: %.s
-	nasm -felf64 $<
+	$(CC) $(FLAGS) -I. -o $@ $<
 
 clean:
 	/bin/rm -rf $(OBJ)
