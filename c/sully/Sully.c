@@ -4,8 +4,8 @@
 int main() {
   int i = 5;
   if (i < 0) return (0);
-  char s[12];
-  s[11] = 0;
+  char s[128];
+  s[127] = 0;
   sprintf(s, S(./Sully_%d.c), i);
   FILE *fp = fopen(s, S(w));
   if (fp == NULL) exit(0);
@@ -16,8 +16,8 @@ int main() {
     "int main() {",
     "  int i = ",
     "  if (i < 0) return (0);",
-    "  char s[12];",
-    "  s[11] = 0;",
+    "  char s[128];",
+    "  s[127] = 0;",
     "  sprintf(s, S(./Sully_%d.c), i);",
     "  FILE *fp = fopen(s, S(w));",
     "  if (fp == NULL) exit(0);",
